@@ -1,0 +1,32 @@
+Joe Mingoia
+CSE306 Pre Project
+Group: Lazy Steel Desperados
+
+Created Git Repository and added all group members to it
+
+********************************************************************************
+02/08/18 4:00pm Duration 45 Minutes
+
+First Group Meeting
+Members Present:
+		Joe
+		Tyler
+		Doug
+
+Tools used: 
+	Command Line
+	Timberlake
+	Git
+	Bitbucket
+	
+
+Activity: Went over general project logistics such as, but not limited to:
+	Figuring out our availability
+	Reading through the project instructions.
+	Examining the standards of CSV files
+	Creating tests for git and performing our first commits
+	Each created our Initial Logs.
+
+********************************************************************************
+	
+
