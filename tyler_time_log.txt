@@ -1,0 +1,20 @@
+
+Time log for pre project - Tyler Turnbull
+
+==========================================================
+
+Activity: First time meeting, discussed project and 
+	what are aproach was. Discussed when we can
+	work together. Also started to use git and 
+	got familiar with pushing and pulling the 
+	project. 
+
+Tools: git, bitbucket
+
+Duration:
+	02/08/18
+	 45 mins
+
+Participants: Tyler, Joe, Doug
+
+===========================================================
