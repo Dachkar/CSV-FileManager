@@ -1,6 +1,7 @@
 #include<stdio.h>
 /*Joe Mingoia
- *Tyler Turnbull */
+ *Tyler Turnbull
+ *Douglas Achkar */
 
 
 int main(){
