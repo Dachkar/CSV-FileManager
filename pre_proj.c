@@ -1,5 +1,6 @@
 #include<stdio.h>
-/*Joe Mingoia*/
+/*Joe Mingoia
+ *Tyler Turnbull */
 
 
 int main(){
