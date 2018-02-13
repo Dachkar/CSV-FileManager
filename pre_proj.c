@@ -8,7 +8,12 @@
 
 int main(int argc, char* argv[]){
 
-FILE* inFile = NULL;  // To open the csv file
+FILE* inFile = fopen(argv[argc - 1], "r");  // To open the csv file
+
+if(inFile == NULL){
+	printf("No such file.");
+	return 0;
+}
 
 char _f[]= "-f";
 char _r[]= "-r";
@@ -22,16 +27,21 @@ char mean[]= "mean";
 
 int i;// for loop iterator vairable. Its 1 cause argv[0] is this program
 
-for(i = 1; i < argc; i++)
+// Loop iterates to argc - 1 because the final arg is the filename
+for(i = 1; i < argc -1; i++)
 {
 
 
-	printf("Start of loop, i = %d, arg is %s", i, argv[i]);
+	printf("Start of loop, i = %d, arg is %s\n", i, argv[i]);
 
          if(strcmp(argv[i],_f) == 0 ) // compares both strings to see if they match
 		{
 		// Display the number of fields. To do this I think we count the number of comas and add 1
-			
+			char* buf[100];
+			printf("Running -f command\n");
+			while(fscanf(inFile, "%s,", buf) == 1){
+				printf("%s\n", buf);
+			}	
 		} 
 	else if(strcmp(argv[i],_r) == 0)
 		{
