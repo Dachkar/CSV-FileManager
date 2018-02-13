@@ -1,0 +1,11 @@
+DYLAN WONG'S LOG
+
+
+
+
+
+2/12/18
+ACTIVITY: Worked on the basic skeleton for the PRE, As well as suggest ideas for the rest of the PRE.
+TOOLS: Just used gcc
+TIME: 9:00pm to 10:20pm
+PARTICIPANTS: alone
