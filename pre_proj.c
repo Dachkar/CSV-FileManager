@@ -27,6 +27,8 @@ char mean[]= "mean";
 
 int i;// for loop iterator vairable. Its 1 cause argv[0] is this program
 
+
+
 // Loop iterates to argc - 1 because the final arg is the filename
 for(i = 1; i < argc -1; i++)
 {
@@ -36,16 +38,44 @@ for(i = 1; i < argc -1; i++)
 
          if(strcmp(argv[i],_f) == 0 ) // compares both strings to see if they match
 		{
-		// Display the number of fields. To do this I think we count the number of comas and add 1
+			// Display the number of fields in first record.
+			printf("Running -f command");
+
+			FILE* inFile = fopen(argv[argc - 1], "r");
+                        if(inFile == NULL){
+                                printf("No such file.");
+                                 return 0;
+                        } 
+		
 			char* buf[100];
-			printf("Running -f command\n");
+			
 			while(fscanf(inFile, "%s,", buf) == 1){
 				printf("%s\n", buf);
-			}	
-		} 
+			}
+
+			fclose(inFile);	
+		}
+ 
 	else if(strcmp(argv[i],_r) == 0)
 		{
-		//Display the number of records in file. We could count the amount of times we scan
+			//Display the number of records in file. We could count the amount of times we scan
+			printf("Running -r command\n");
+			FILE* inFile = fopen(argv[argc - 1], "r");
+                        if(inFile == NULL){
+                                printf("No such file.");
+                                 return 0;
+                        } 
+			int count;
+	
+			char* buf[100];	
+			while(fscanf(inFile,"%s", buf) == 1){
+				printf("%s\n", buf);
+			}
+			
+		
+			printf("%d \n", count);
+			fclose(inFile);
+			
 		}
 	else if(strcmp(argv[i],_h) == 0)
 		{
@@ -80,6 +110,6 @@ for(i = 1; i < argc -1; i++)
 
 		}
 }
-//  fclose(inFile);
+
   return 0;
 }
