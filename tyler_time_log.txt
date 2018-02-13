@@ -33,3 +33,42 @@ Duration:
 Participants: Tyler
 
 ===========================================================
+
+Activity: Got the -r and -f functions to print the contents
+	of the file. However, I had a few issues parsing the data.
+
+	First the hidden commas within " " are causing issue. 
+	Second, no matter how I use fscanf i seem to be dumping
+	everything it collects into one variable. Probably a 
+	simple workaround here but my knowledge of c is holding me 
+	back. 
+
+	I believe if we can implement a struct, such as:
+
+	struct {
+	int ref_date;
+	char[] geo;
+	char[] viewer;
+	char[] content;
+	char[] program;
+	char[] vector;
+	float value;
+	}
+
+	Then we just need to parse the data into an array or list,
+	or whatever works best in c. If it were java I would just 
+	create an object to model the data and use an ArrayList<ObjectName>.
+
+	Will have to pick my teams c brains and see if they know anymore than 
+	I do.
+
+
+Tools: vim, git, gcc
+
+Duration:
+        02/13/18
+         120  mins
+
+Participants: Tyler
+
+===========================================================

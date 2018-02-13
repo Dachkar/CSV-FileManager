@@ -25,10 +25,20 @@ char min[] = "min";
 
 char mean[]= "mean";
 
+
+
+// Here is an idea for the object
+struct data {
+	int ref_date;
+	char geo[40];
+	char viewer[100];
+	char content[100];
+	char program[100];
+	char vector[20];
+	char coordinate[10];
+	float value;
+};
 int i;// for loop iterator vairable. Its 1 cause argv[0] is this program
-
-
-
 // Loop iterates to argc - 1 because the final arg is the filename
 for(i = 1; i < argc -1; i++)
 {
