@@ -18,3 +18,18 @@ Duration:
 Participants: Tyler, Joe, Doug
 
 ===========================================================
+
+==========================================================
+
+Activity: Fixed base code  so that it would 
+	compile and run. 
+
+Tools: vim, git, gcc
+
+Duration:
+        02/13/18
+         60  mins
+
+Participants: Tyler
+
+===========================================================
