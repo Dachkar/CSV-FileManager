@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<string.h>// lets us use the strcmp function. Used o compare strings in C
+#include<stdbool.h>
+
 /*Joe Mingoia
  *Tyler Turnbull
  *Douglas Achkar
@@ -57,14 +59,43 @@ for(i = 1; i < argc -1; i++)
                                  return 0;
                         } 
 		
-			char buf[100];
-			
-			while(fgets(buf, 100, inFile) != NULL){
-				puts(buf);
-
-				
+			char buf[300];
+			char currString[100];
+			char *p;	
+			while(fgets(buf, 300, inFile) != NULL){
+			//	puts(buf);
+				p = buf;
+			//	printf("%d\n",strlen(buf));
+				int i;
+				bool comma = false; // if true tricky comma detected
+				char curString[100];
+				int curStringIndex = 0;
+				for(i =0; i < strlen(buf); i++){
+				//	printf("%c\n", buf[i]);
+					printf("Examining character %c\n", buf[i]); 
+					if(buf[i] == '"' && comma == false ){
+						comma = true;
+						curString[curStringIndex] = buf[i];
+						curStringIndex++;
+						puts("opening quote");
+					}else if(buf[i] == '"' && comma == true){
+						comma = false;
+						curString[curStringIndex] = buf[i];
+						curStringIndex++;
+						puts("closing quote");
+					}else if(buf[i] = ',' && comma == false){
+						// at end of curString
+						printf("%s\n", curString);
+						curStringIndex = 0;
+						puts("End of cur string");
+					}else {
+						curString[curStringIndex] = buf[i];
+						curStringIndex++;
+						puts("general character");
+					}
+				}		
 			}
-
+			
 			fclose(inFile);	
 		}
  
