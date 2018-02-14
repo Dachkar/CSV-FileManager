@@ -51,7 +51,7 @@ for(i = 1; i < argc -1; i++)
          if(strcmp(argv[i],_f) == 0 ) // compares both strings to see if they match
 		{
 			// Display the number of fields in first record.
-			printf("Running -f command");
+		
 
 			FILE* inFile = fopen(argv[argc - 1], "r");
                         if(inFile == NULL){
@@ -61,18 +61,19 @@ for(i = 1; i < argc -1; i++)
 		
 			char buf[300];
 			char currString[100];
-			char *p;	
+			char *p;
+			int cols = 0;	
 			while(fgets(buf, 300, inFile) != NULL){
-			//	puts(buf);
+		
 				p = buf;
-			//	printf("%d\n",strlen(buf));
 				int i;
 				bool comma = false; // if true tricky comma detected
 				char curString[100];
 				memset(curString, 0, 100);
 				int curStringIndex = 0;
+				cols = 0;
 				for(i =0; i < strlen(buf); i++){
-				//	printf("%c\n", buf[i]);
+			
 					 
 					if(buf[i] == '"' && comma == false ){
 						comma = true;
@@ -84,11 +85,12 @@ for(i = 1; i < argc -1; i++)
 						curString[curStringIndex] = buf[i];
 						curStringIndex++;
 						
-					}else if(buf[i] == ',' && comma == false){
+					}else if((buf[i] == ',' && comma == false) || i == strlen(buf) - 1){
 						// at end of curString
-						printf("%s\n", curString);
+						
 						curStringIndex = 0;
 						memset(curString, 0, 100);
+						cols++;
 					}else {
 						curString[curStringIndex] = buf[i];
 						curStringIndex++;
@@ -96,7 +98,7 @@ for(i = 1; i < argc -1; i++)
 					}
 				}		
 			}
-			
+			printf("%d\n", cols);	
 			fclose(inFile);	
 		}
  
