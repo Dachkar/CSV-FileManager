@@ -57,10 +57,12 @@ for(i = 1; i < argc -1; i++)
                                  return 0;
                         } 
 		
-			char* buf[100];
+			char buf[100];
 			
-			while(fscanf(inFile, "%s,", buf) == 1){
-				printf("%s\n", buf);
+			while(fgets(buf, 100, inFile) != NULL){
+				puts(buf);
+
+				
 			}
 
 			fclose(inFile);	
@@ -77,10 +79,13 @@ for(i = 1; i < argc -1; i++)
                         } 
 			int count;
 	
-			char* buf[100];	
-			while(fscanf(inFile,"%s", buf) == 1){
-				printf("%s\n", buf);
-			}
+			 char buf[100];
+
+                        while(fgets(buf, 100, inFile) != NULL){
+                                puts(buf);
+
+                        
+                        }
 			
 		
 			printf("%d \n", count);
