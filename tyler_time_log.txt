@@ -72,3 +72,16 @@ Duration:
 Participants: Tyler
 
 ===========================================================
+
+Activity: Figured out how to parse csv file and completed the 
+	functionality for -f command
+
+Tools: vim, git, gcc
+
+Duration:
+        02/14/18
+         130  mins
+
+Participants: Tyler, Doug, Dillon, Joe
+
+===========================================================
