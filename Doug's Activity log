@@ -6,8 +6,23 @@ ACTIVITY LOG - DOUGLAS ACHKAR.
 -Tools(Editor, debugger, compiler, testing framework):
 	Git: Finished setting up repository
 -Time:
-	Start: 3:40
-	Duration: 4:50
+	Start: 3:40pm
+	Finish: 4:50
 -Participants
 	Doug, Tyler and Joe
+#########################################################################################################
+-Activity(Design, coding, writing tests, debugging):
+	General planning and design of functions: https://imgur.com/a/pwi7Z
+	Wrote functions to iterate through a csv file and isolate each line and later isolate each field value
+	We plan on incorporating those functions to follow the activity determinations.
+	During this meeting, Tyler did most/all the code writing while Dylan and Joe and I were assisting him by 
+	providing ideas and code insights. Check the imgur picture link above for more info.
+-Tools(Editor, debugger, compiler, testing framework):
+	Vim, gcc, git, whiteboard
+	
+-Time:
+	Start: 1:30pm
+	Finish:3:40
+-Participants
+	Doug, Tyler, Joe, Dylan.
 #########################################################################################################
