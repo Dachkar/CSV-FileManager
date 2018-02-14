@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>// lets us use the strcmp function. Used o compare strings in C
 #include<stdbool.h>
-
+#include<string.h>
 /*Joe Mingoia
  *Tyler Turnbull
  *Douglas Achkar
@@ -69,29 +69,30 @@ for(i = 1; i < argc -1; i++)
 				int i;
 				bool comma = false; // if true tricky comma detected
 				char curString[100];
+				memset(curString, 0, 100);
 				int curStringIndex = 0;
 				for(i =0; i < strlen(buf); i++){
 				//	printf("%c\n", buf[i]);
-					printf("Examining character %c\n", buf[i]); 
+					 
 					if(buf[i] == '"' && comma == false ){
 						comma = true;
 						curString[curStringIndex] = buf[i];
 						curStringIndex++;
-						puts("opening quote");
+						
 					}else if(buf[i] == '"' && comma == true){
 						comma = false;
 						curString[curStringIndex] = buf[i];
 						curStringIndex++;
-						puts("closing quote");
-					}else if(buf[i] = ',' && comma == false){
+						
+					}else if(buf[i] == ',' && comma == false){
 						// at end of curString
 						printf("%s\n", curString);
 						curStringIndex = 0;
-						puts("End of cur string");
+						memset(curString, 0, 100);
 					}else {
 						curString[curStringIndex] = buf[i];
 						curStringIndex++;
-						puts("general character");
+						
 					}
 				}		
 			}
