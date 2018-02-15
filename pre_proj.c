@@ -54,7 +54,7 @@ struct field fields[300];
 char words[300];//Acts like buf
 bool firstLine=true;
 int Li;// Comments below
-int p=0;//comments below
+int p=0;//counter for fieldc. To know where to add the next char
 int fieldN=0;//keeps track of current field we are on
 char fieldC[100];//name of current field
 bool quoteTracker = false;//Tells if we are in a quote or not
@@ -62,7 +62,7 @@ int fieldRows=0 ;//count which row we are on
 while(fgets(words,300,inFile)!=NULL)
 {
 //int Li;//Counter to show which character we are on
-//int p=0;// counter for fields
+
 //int fieldN=0;// Counter for which field we a re on
 for(Li=0;Li<strlen(words);Li++)
 {
@@ -70,7 +70,26 @@ for(Li=0;Li<strlen(words);Li++)
 switch(words[Li]){
 
 case'"':
-	if(Li+1==strlen(words)){default;break;}
+	if(firstLine)
+	{
+	if((Li+1)==strlen(words)&&words[Li]=='"')
+	{
+	memcpy(fields[fieldN].name,fieldC,sizeof(fieldC));
+	fieldN=0;	
+	firstLine=false;	
+	p=0;	
+	}
+	}
+	else//not firstline
+		{
+		if((Li+1)==strlen(words)&&words[Li]=='"')
+		{
+		memcpy(fields[fieldN].OtherFields[fieldRows],fieldC,sizeof(fieldC));
+		fieldRows++;
+		fieldN=0;
+		p=0;	
+		}
+		}
 	if(!quoteTracker){
 	quoteTracker=true;
 	break;}//end of if
@@ -83,6 +102,7 @@ case',':
 	memcpy(fields[fieldN].name,fieldC,sizeof(fieldC));//memory copy
 	p=0;//resets
 	fieldN++;
+	memset(fieldC,0,100);// erase current word
 	break;
 	}
 	else
@@ -91,29 +111,33 @@ case',':
 		}// end of if with first line qrg
 	else//not first line
 	{
+	if(!quoteTracker){
 	memcpy(fields[fieldN].OtherFields[fieldRows],fieldC,sizeof(fieldC));//copy string int field struct
 	fieldN++;
+	p=0;
+	memset(fieldC,0,100);
 	break;
+	}
+	else
+	{
+	fieldC[p]=words[Li];
+	p++;break;
+	}
 	}
 	
 default:
 	if(firstLine){
 	
-	if(Li+1==strlen(words)&&words[Li]=='"')
-	{
-	memcpy(fields[fieldN].name,fieldC,sizeof(fieldC));
-	fieldN=0;	
-	
-	break;
-	}
-	else if(Li+1==strlen(words)){
+
+	 if((Li+1)==strlen(words)){
 	fieldC[p]=words[Li];
 	memcpy(fields[fieldN].name,fieldC,sizeof(fieldC));
 	fieldN=0;
-
+	firstLine=false;
+	p=0;
 	break;
 	}
-	else{
+	else{//normal adding chars to fieldC to make a field
 	fieldC[p]=words[Li];
 	p++;
 	break;
@@ -121,19 +145,14 @@ default:
 	}
 	else//not first line
 	{
-	if(Li+1==strlen(words)&&words[Li]=='"')
-		{
-		memcpy(fields[fieldN].OtherFields[fieldRows],fieldC,sizeof(fieldC));
-		fieldRows++;
-		fieldN=0;
-		break;
-		}
-	else if(Li+1==strlen(words))
+	
+	 if((Li+1)==strlen(words))
 		{
 		fieldC[p]=words[Li];
 		memcpy(fields[fieldN].OtherFields[fieldRows],fieldC,sizeof(fieldC));
 		fieldRows++;
-		fieldN=0;	
+		fieldN=0;
+		p=0;	
 		break;
 		}
 	else//for if its not first line
@@ -149,8 +168,8 @@ default:
 }// end of fore
 memset(fieldC,0,100);
 }// end of while
-printf(fields[0].name);
-printf("\n");
+//printf(fields[1].OtherFields[1]);
+//printf("\n");
 fclose(inFile);
 int i;// for loop iterator vairable. Its 1 cause argv[0] is this program
 // Loop iterates to argc - 1 because the final arg is the filename

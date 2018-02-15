@@ -22,3 +22,10 @@ TOOLS:gcc
 TIME:11:30pm-2:30am
 PARTICIPANTS: alone
 COMMENTS: This was nasty. I had to make an array of structs. This hurt me.
+
+2/15/18
+ACTIVITY: Worked on more struct stuffs
+Tool: gcc I tried gdb, it didnt work
+TIME: 10:00am-2:00pm
+PARTICIPANTS: alone
+
