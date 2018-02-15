@@ -9,3 +9,16 @@ ACTIVITY: Worked on the basic skeleton for the PRE, As well as suggest ideas for
 TOOLS: Just used gcc
 TIME: 9:00pm to 10:20pm
 PARTICIPANTS: alone
+
+2/14/18
+ACTIVITY: WORKED OF WAYS TO PARSE THE FILE
+TOOLS: WHITE BOARD,GCC
+TIME: 1:30am-2:40pm
+PARTICIPANTS: everyone
+
+2/14/18
+ACTIVITY: create a struct that houses information, also finished the -r function.
+TOOLS:gcc
+TIME:11:30pm-2:30am
+PARTICIPANTS: alone
+COMMENTS: This was nasty. I had to make an array of structs. This hurt me.

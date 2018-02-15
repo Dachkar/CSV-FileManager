@@ -40,11 +40,58 @@ struct data {
 	char coordinate[10];
 	float value;
 };
+struct field {
+char name[300];
+int max;
+int min;
+int rValue;
+
+
+
+};
+struct field fields[300];
+char words[300];//Acts like buf
+bool firstLine=true;
+int Li;// Comments below
+int p=0;//comments below
+int fieldN=0;//comments below
+char fieldC[100];//name of current field
+while(fgets(words,300,inFile)!=NULL)
+{
+//int Li;//Counter to show which character we are on
+//int p=0;// counter for fields
+//int fieldN=0;// Counter for which field we a re on
+for(Li=0;Li<strlen(words);Li++)
+{
+//char fieldC[100];//name of current field
+switch(words[Li]){
+
+case',':
+	memcpy(fields[fieldN].name,fieldC,sizeof(fieldC));
+	p=0;
+	fieldN++;
+	break;
+default:
+	
+	fieldC[p]=words[Li];
+
+	p++;
+	break;
+
+
+}// end of switch
+
+}// end of fore
+memset(fieldC,0,100);
+}// end of while
+printf(fields[0].name);
+printf("\n");
+fclose(inFile);
 int i;// for loop iterator vairable. Its 1 cause argv[0] is this program
 // Loop iterates to argc - 1 because the final arg is the filename
 for(i = 1; i < argc -1; i++)
 {
-
+	int count=0;// Inializing here for h
 
 	printf("Start of loop, i = %d, arg is %s\n", i, argv[i]);
 
@@ -66,33 +113,33 @@ for(i = 1; i < argc -1; i++)
 			while(fgets(buf, 300, inFile) != NULL){
 		
 				p = buf;
-				int i;
+				int I;//changed to cap i to no get confused with little i in big for loop
 				bool comma = false; // if true tricky comma detected
 				char curString[100];
 				memset(curString, 0, 100);
 				int curStringIndex = 0;
 				cols = 0;
-				for(i =0; i < strlen(buf); i++){
+				for(I=0; i < strlen(buf); i++){
 			
 					 
-					if(buf[i] == '"' && comma == false ){
+					if(buf[I] == '"' && comma == false ){
 						comma = true;
-						curString[curStringIndex] = buf[i];
+						curString[curStringIndex] = buf[I];
 						curStringIndex++;
 						
-					}else if(buf[i] == '"' && comma == true){
+					}else if(buf[I] == '"' && comma == true){
 						comma = false;
-						curString[curStringIndex] = buf[i];
+						curString[curStringIndex] = buf[I];
 						curStringIndex++;
 						
-					}else if((buf[i] == ',' && comma == false) || i == strlen(buf) - 1){
+					}else if((buf[I] == ',' && comma == false) || I == strlen(buf) - 1){
 						// at end of curString
 						
 						curStringIndex = 0;
 						memset(curString, 0, 100);
 						cols++;
 					}else {
-						curString[curStringIndex] = buf[i];
+						curString[curStringIndex] = buf[I];
 						curStringIndex++;
 						
 					}
@@ -111,14 +158,14 @@ for(i = 1; i < argc -1; i++)
                                 printf("No such file.");
                                  return 0;
                         } 
-			int count;
+		//	int count;
 	
-			 char buf[100];
+			 char buf[300];
 
-                        while(fgets(buf, 100, inFile) != NULL){
-                                puts(buf);
+                        while(fgets(buf, 300, inFile) != NULL){
+                               // puts(buf); // This Prints
 
-                        
+                       		count++; 
                         }
 			
 		
@@ -129,8 +176,8 @@ for(i = 1; i < argc -1; i++)
 	else if(strcmp(argv[i],_h) == 0)
 		{
 		//Treat the first record of the file as a header record rather than a data record
-		//This is kind of painful, but we could make an int that represents true and false,1 and 0. and have an if statement everywhere that would
-		//progress the first scan without doing anything.
+	FILE* inFile = fopen(argv[argc-1],"r");
+			
 		}          
 	
 
@@ -138,8 +185,29 @@ for(i = 1; i < argc -1; i++)
 	else if(strcmp(argv[i],max) == 0) // Compares strings
 		{
 		//Displays the max value in the indicated field
-		// we could scan the whole field and just have a vairable that keeps track of the highest number. 
+/*		FILE* inFile = fopen(argv[argc-1],"r");
+		if (inFile== NULL){printf("No such file");return 0;}
+		
+		int fCount=0;//Int to iterate through my fields.
+		char buf[300];
+		int i ;
+		while(fgets(buf,300,inFile) != NULL)
+		 {
+	
+
+		for(i=0;strlen;(buf);i++)
+		{
+
+
+		fCount++;
+		printf("printing max names, %s.",fields[fCount].name);	
 		}
+
+		}
+
+
+		fclose(inFile);
+	*/	}
 	
 		
 	else if(strcmp(argv[i],min) == 0)
