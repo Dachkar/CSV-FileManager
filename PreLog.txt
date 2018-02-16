@@ -28,5 +28,21 @@ Activity: Went over general project logistics such as, but not limited to:
 	Each created our Initial Logs.
 
 ********************************************************************************
-	
+02/14/18 1:30pm Duration 2 hours 10 minutes
 
+Second Group Meeting
+Members Present:
+		Joe
+		Tyler
+		Doug
+		Dylan
+
+Tools used:
+	Command Line
+	Vim
+	Timberlake
+	Bitbucket
+
+Activity:  
+
+*******************************************************************************
