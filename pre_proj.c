@@ -206,7 +206,7 @@ int main(int argc, char* argv[]){
 					memset(curString, 0, 100);
 					int curStringIndex = 0;
 					cols = 0;
-					for(I=0; i < strlen(buf); i++){
+					for(I=0; I < strlen(buf); I++){
 
 
 						if(buf[I] == '"' && comma == false ){
