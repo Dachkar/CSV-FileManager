@@ -59,10 +59,11 @@ int fieldN=0;//keeps track of current field we are on
 char fieldC[300];//name of current field
 bool quoteTracker = false;//Tells if we are in a quote or not
 int fieldRows=0 ;//count which row we are on
+int Records=0;
 while(fgets(words,300,inFile)!=NULL)
 {
 //int Li;//Counter to show which character we are on
-
+Records++;
 //int fieldN=0;// Counter for which field we a re on
 for(Li=0;Li<strlen(words);Li++)
 {
@@ -169,7 +170,7 @@ default:
 memset(fieldC,0,300);
 }// end of while
 /*for(int k =0;k<10;k++){
-printf(fields[7].OtherFields[k]);
+printf("%d",Records);
 printf("\n");
 }*/
 fclose(inFile);
