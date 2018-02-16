@@ -42,7 +42,7 @@ struct data {
 };
 struct field {
 char name[300];
-char OtherFields[10][300];//Hold other fields . Otherfields[How many fields][Length of each field]
+char OtherFields[900][300];//Hold other fields . Otherfields[How many fields][Length of each field]
 int max;
 int min;
 int rValue;
@@ -56,7 +56,7 @@ bool firstLine=true;
 int Li;// Comments below
 int p=0;//counter for fieldc. To know where to add the next char
 int fieldN=0;//keeps track of current field we are on
-char fieldC[100];//name of current field
+char fieldC[300];//name of current field
 bool quoteTracker = false;//Tells if we are in a quote or not
 int fieldRows=0 ;//count which row we are on
 while(fgets(words,300,inFile)!=NULL)
@@ -72,7 +72,7 @@ switch(words[Li]){
 case'"':
 	if(firstLine)
 	{
-	if((Li+1)==strlen(words)&&words[Li]=='"')
+	if((Li+1)==strlen(words))
 	{
 	memcpy(fields[fieldN].name,fieldC,sizeof(fieldC));
 	fieldN=0;	
@@ -82,7 +82,7 @@ case'"':
 	}
 	else//not firstline
 		{
-		if((Li+1)==strlen(words)&&words[Li]=='"')
+		if((Li+1)==strlen(words))
 		{
 		memcpy(fields[fieldN].OtherFields[fieldRows],fieldC,sizeof(fieldC));
 		fieldRows++;
@@ -102,7 +102,7 @@ case',':
 	memcpy(fields[fieldN].name,fieldC,sizeof(fieldC));//memory copy
 	p=0;//resets
 	fieldN++;
-	memset(fieldC,0,100);// erase current word
+	memset(fieldC,0,300);// erase current word
 	break;
 	}
 	else
@@ -115,7 +115,7 @@ case',':
 	memcpy(fields[fieldN].OtherFields[fieldRows],fieldC,sizeof(fieldC));//copy string int field struct
 	fieldN++;
 	p=0;
-	memset(fieldC,0,100);
+	memset(fieldC,0,300);
 	break;
 	}
 	else
@@ -166,10 +166,12 @@ default:
 }// end of switch
 
 }// end of fore
-memset(fieldC,0,100);
+memset(fieldC,0,300);
 }// end of while
-//printf(fields[1].OtherFields[1]);
-//printf("\n");
+/*for(int k =0;k<10;k++){
+printf(fields[7].OtherFields[k]);
+printf("\n");
+}*/
 fclose(inFile);
 int i;// for loop iterator vairable. Its 1 cause argv[0] is this program
 // Loop iterates to argc - 1 because the final arg is the filename
