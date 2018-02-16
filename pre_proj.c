@@ -2,6 +2,8 @@
 #include<string.h>// lets us use the strcmp function. Used o compare strings in C
 #include<stdbool.h>
 #include<string.h>
+#include<stdlib.h>
+#include<ctype.h>
 /*Joe Mingoia
 *Tyler Turnbull
 *Douglas Achkar
@@ -21,11 +23,11 @@ int main(int argc, char* argv[]){
 	char _r[]= "-r";
 	char _h[]= "-h";
 
-	char max[] = "max";
+	char max[] = "-max";
 
-	char min[] = "min";
+	char min[] = "-min";
 
-	char mean[]= "mean";
+	char mean[]= "-mean";
 
 
 
@@ -43,8 +45,9 @@ int main(int argc, char* argv[]){
 	struct field {
 		char name[300];
 		char OtherFields[900][300];//Hold other fields . Otherfields[How many fields][Length of each field]
-		int max;
-		int min;
+		float  maxn;
+		float minn;
+		float meann;
 		int rValue;
 
 
@@ -60,6 +63,7 @@ int main(int argc, char* argv[]){
 	bool quoteTracker = false;//Tells if we are in a quote or not
 	int fieldRows=0 ;//count which row we are on
 	int Records=0;
+	int FieldsA=0;
 	while(fgets(words,300,inFile)!=NULL)
 	{
 		//int Li;//Counter to show which character we are on
@@ -79,6 +83,7 @@ int main(int argc, char* argv[]){
 						fieldN=0;
 						firstLine=false;
 						p=0;
+						FieldsA++;
 					}
 				}
 				else//not firstline
@@ -104,6 +109,7 @@ int main(int argc, char* argv[]){
 							p=0;//resets
 							fieldN++;
 							memset(fieldC,0,300);// erase current word
+							FieldsA++;
 							break;
 						}
 						else
@@ -131,11 +137,12 @@ int main(int argc, char* argv[]){
 
 
 							if((Li+1)==strlen(words)){
-								fieldC[p]=words[Li];
+							//	fieldC[p]=words[Li];
 								memcpy(fields[fieldN].name,fieldC,sizeof(fieldC));
 								fieldN=0;
 								firstLine=false;
 								p=0;
+								FieldsA++;
 								break;
 							}
 							else{//normal adding chars to fieldC to make a field
@@ -173,6 +180,7 @@ int main(int argc, char* argv[]){
 			printf("%d",Records);
 			printf("\n");
 		}*/
+	//	printf("%f\n",atof(fields[7].OtherFields[0]));
 		fclose(inFile);
 		int i;// for loop iterator vairable. Its 1 cause argv[0] is this program
 		// Loop iterates to argc - 1 because the final arg is the filename
@@ -271,36 +279,128 @@ int main(int argc, char* argv[]){
 
 			else if(strcmp(argv[i],max) == 0) // Compares strings
 			{
-				//Displays the max value in the indicated field
-				/*		FILE* inFile = fopen(argv[argc-1],"r");
-				if (inFile== NULL){printf("No such file");return 0;}
+			//const int initializer = i + 1;
+			
+			char fieldName[200];
+			char cleanFn[200];
+			strcpy(fieldName, argv[i + 1]);
+			printf("we are in the max\n");	
 
-				int fCount=0;//Int to iterate through my fields.
-				char buf[300];
-				int i ;
-				while(fgets(buf,300,inFile) != NULL)
-				{
+			
+
+			printf("fieldName %s\n", fieldName);
+			printf("cleanFn: %s\n", cleanFn);
+			int y = 0;
+			int j = 0;
+			float firstVal;
+			
+			for (y; y < FieldsA; y++){
+					puts(fields[y].name);
+					puts("COMPARE");
+					puts(fieldName);
+				if (strcmp(fieldName, fields[y].name) == 0){
+					puts("FIRST LOOP> WE MADE IT BOYS");
+					bool validNum = false;
+					 if(atof(fields[y].OtherFields[0]) != 0){
+						validNum = true;
+					 	firstVal = atof(fields[y].OtherFields[0]);
+					 		
+                                    
+					       printf("We are in a number");
+                                                }else {
+                                                        puts("Non-numeric data - exit error 1");
+                                                        return -1;}
+					if(validNum){
+					for (j; j < Records; j++){                     
+						fields[y].maxn = firstVal;
+						if(atof(fields[y].OtherFields[j]) > fields[y].maxn){
+							fields[y].maxn = atof(fields[y].OtherFields[j]);
+			
 
 
-				for(i=0;strlen;(buf);i++)
-				{
+						}
+					
+					printf("Max val#%f",fields[y].maxn);	
 
+					
+    				            }
+					}
 
-				fCount++;
-				printf("printing max names, %s.",fields[fCount].name);
+				}	
+
+			
 			}
 
+
+			for (j; j < Records; j++){
+				
+
+
+			}
+				//Displays the max value in the indicated field
 		}
-
-
-		fclose(inFile);
-		*/	}
 
 
 		else if(strcmp(argv[i],min) == 0)
 		{
-			//Displays the lowest value in the indicated field
-			// Same as Max but for min
+			
+
+
+
+
+		 char fieldName[200];
+                        char cleanFn[200];
+                        strcpy(fieldName, argv[i + 1]);
+                        printf("we are in the max\n");
+
+
+
+                        printf("fieldName %s\n", fieldName);
+                        printf("cleanFn: %s\n", cleanFn);
+                        int y = 0;
+                        int j = 0;
+                        float firstVal;
+
+                        for (y; y < FieldsA; y++){
+                                        puts(fields[y].name);
+                                        puts("COMPARE");
+                                        puts(fieldName);
+                                if (strcmp(fieldName, fields[y].name) == 0){
+                                        puts("FIRST LOOP> WE MADE IT BOYS");
+                                        bool validNum = false;
+                                         if(atof(fields[y].OtherFields[0]) != 0){
+                                                validNum = true;
+                                                firstVal = atof(fields[y].OtherFields[0]);
+
+
+                                               printf("We are in a number");
+                                                }else {
+                                                        puts("Non-numeric data - exit error 1");
+                                                        return -1;}
+                                        if(validNum){
+                                        for (j; j < Records; j++){
+                                                fields[y].maxn = firstVal;
+                                                if(atof(fields[y].OtherFields[j]) < fields[y].maxn){
+                                                        fields[y].maxn = atof(fields[y].OtherFields[j]);
+
+
+
+                                                }
+
+                                        printf("Max val#%f",fields[y].maxn);
+
+
+                                            }
+                                        }
+
+                                }
+
+
+                        }
+
+
+
+		
 		}
 
 
