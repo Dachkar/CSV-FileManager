@@ -44,5 +44,12 @@ Tools used:
 	Bitbucket
 
 Activity:  
+	Correctly pulled in csv file and started to parse it also.
+	Started working on data structures to hold the data correctly.
+
 
 *******************************************************************************
+02/16/18 1:30pm Duration
+
+Third Group Meeting
+
