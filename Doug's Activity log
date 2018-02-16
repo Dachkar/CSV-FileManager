@@ -2,7 +2,7 @@ ACTIVITY LOG - DOUGLAS ACHKAR.
 #########################################################################################################
 -Activity(Design, coding, writing tests, debugging):
 	Read PRE Proccess Project, laid out plans on how to do it, divided tasks and discussed free schedule
-	time in which the group members can meet. 
+	time in which the group members can meet.
 -Tools(Editor, debugger, compiler, testing framework):
 	Git: Finished setting up repository
 -Duration:
@@ -14,13 +14,49 @@ ACTIVITY LOG - DOUGLAS ACHKAR.
 	General planning and design of functions: https://imgur.com/a/pwi7Z
 	Wrote functions to iterate through a csv file and isolate each line and later isolate each field value
 	We plan on incorporating those functions to follow the activity determinations.
-	During this meeting, Tyler did most/all the code writing while Dylan and Joe and I were assisting him by 
+	During this meeting, Tyler did most/all the code writing while Dylan and Joe and I were assisting him by
 	providing ideas and code insights. Check the imgur picture link above for more info.
 -Tools(Editor, debugger, compiler, testing framework):
 	Vim, gcc, git, whiteboard
-	
+
 -Duration:
 	02/14 2:10
 -Participants
 	Doug, Tyler, Joe, Dylan.
+#########################################################################################################
+-Activity(Design, coding, writing tests, debugging):
+
+-Tools(Editor, debugger, compiler, testing framework):
+
+-Duration:
+	02/16 DURATION
+-Participants
+	Doug, Dylan and Joe
+#########################################################################################################
+-Activity(Design, coding, writing tests, debugging):
+
+-Tools(Editor, debugger, compiler, testing framework):
+
+-Duration:
+	MM/DD DURATION
+-Participants
+	Doug, Dylan and Joe
+#########################################################################################################
+-Activity(Design, coding, writing tests, debugging):
+
+-Tools(Editor, debugger, compiler, testing framework):
+
+-Duration:
+	MM/DD DURATION
+-Participants
+	Doug, Dylan and Joe
+#########################################################################################################
+-Activity(Design, coding, writing tests, debugging):
+
+-Tools(Editor, debugger, compiler, testing framework):
+
+-Duration:
+	MM/DD DURATION
+-Participants
+	Doug, Dylan and Joe
 #########################################################################################################
