@@ -6,7 +6,7 @@ ACTIVITY LOG - DOUGLAS ACHKAR.
 -Tools(Editor, debugger, compiler, testing framework):
 	Git: Finished setting up repository
 -Duration:
-	02/08 1:10
+	02/08 1:10 hours
 -Participants
 	Doug, Tyler and Joe
 #########################################################################################################
@@ -20,16 +20,22 @@ ACTIVITY LOG - DOUGLAS ACHKAR.
 	Vim, gcc, git, whiteboard
 
 -Duration:
-	02/14 2:10
+	02/14 2:10 hours
 -Participants
 	Doug, Tyler, Joe, Dylan.
 #########################################################################################################
 -Activity(Design, coding, writing tests, debugging):
+	We wrote the code that computes MIN and MAX. The same code will be the base to compute the MEAN average
+	I used gdb to try to find a segfault that was happening when i tried to compile the code on my computer
+	but since I couldnt find it, i just tried running my code in timberlake and it then worked.
 
+	Writing the code took a considerate amount of time since we were running into some small problems but at
+	the end we managed to figure them out. Collectively looking at code and looking for mistakes and possible
+	solutions as a group prooved to be effective as we caught ours and others mistakes.
 -Tools(Editor, debugger, compiler, testing framework):
-
+	vim, gcc, gdb.
 -Duration:
-	02/16 DURATION
+	02/16 6:00 hours
 -Participants
 	Doug, Dylan and Joe
 #########################################################################################################
