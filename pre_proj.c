@@ -344,11 +344,11 @@ int main(int argc, char* argv[]){
 					char fieldName[200];
 					char cleanFn[200];
 					strcpy(fieldName, argv[i + 1]);
-					printf("We are in the mean\n");
+					//printf("We are in the mean\n");
 
 
-					printf("fieldName %s\n", fieldName);
-					printf("cleanFn: %s\n", cleanFn);
+					//printf("fieldName %s\n", fieldName);
+					//printf("cleanFn: %s\n", cleanFn);
 					int y = 0;
 					int j = 0;
 					float firstVal;
@@ -361,12 +361,12 @@ int main(int argc, char* argv[]){
 
 
 					for (y; y < FieldsA; y++){
-						puts(fields[y].name);
-						puts("COMPARE");
-						puts(fieldName);
+						//puts(fields[y].name);
+						//puts("COMPARE");
+						//puts(fieldName);
 						//If we are at the field that we were looking for, go in loop
 						if (strcmp(fieldName, fields[y].name) == 0){
-							puts("FIRST LOOP> WE MADE IT TO THE FIELD BOYYYYYSS");
+							//puts("FIRST LOOP> WE MADE IT TO THE FIELD BOYYYYYSS");
 							//validNum determines if the column has number values or not
 							//It could be improoved, and maybe i will need to
 							//TODO -min field Display the minimum value in the indicated field of the data records.
