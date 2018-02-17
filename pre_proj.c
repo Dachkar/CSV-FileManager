@@ -396,7 +396,9 @@ int main(int argc, char* argv[]){
 
 						}
 							//Calculating mean over ALL records. Might need change if we filter entries.
-							totalMean = totalSum / Records;
+							// dividing by records -1 because of header filename
+							//TODO take into consideration -h tag when computing average
+							totalMean = totalSum / Records -1;
 							printf("Total mean is:%f\n",totalMean);
 
 
