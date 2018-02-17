@@ -188,7 +188,7 @@ int main(int argc, char* argv[]){
 		{
 			int count=0;// Inializing here for h
 
-			printf("Start of loop, i = %d, arg is %s\n", i, argv[i]);
+			//printf("Start of loop, i = %d, arg is %s\n", i, argv[i]);
 
 			if(strcmp(argv[i],_f) == 0 ) // compares both strings to see if they match
 			{
