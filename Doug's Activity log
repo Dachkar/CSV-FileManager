@@ -40,13 +40,17 @@ ACTIVITY LOG - DOUGLAS ACHKAR.
 	Doug, Dylan and Joe
 #########################################################################################################
 -Activity(Design, coding, writing tests, debugging):
-
+	Wrote mean function. I still have some concerns:
+	-Regarding checking for the -h flag ( which would affect average)
+	-Also how to differenciate non-numerical entries from 0 entries
+	-If a field has numerical and text entries, should the few numerical entries be averaged anyway? 
+	
 -Tools(Editor, debugger, compiler, testing framework):
-
+	gcc, vim, atom, git, timberlake.
 -Duration:
-	MM/DD DURATION
+	02/17 1:30
 -Participants
-	Doug, Dylan and Joe
+	Doug.
 #########################################################################################################
 -Activity(Design, coding, writing tests, debugging):
 
