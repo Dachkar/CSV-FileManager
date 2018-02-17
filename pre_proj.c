@@ -273,6 +273,8 @@ int main(int argc, char* argv[]){
 			else if(strcmp(argv[i],_h) == 0)
 			{
 				//Treat the first record of the file as a header record rather than a data record
+				//
+				//If you want we could place a check to see if its a number here. If it isnt throw an error, because all the methods where you would use -h reqiure name to be a number.
 				boolh = true;
 
 			}
@@ -395,6 +397,10 @@ int main(int argc, char* argv[]){
 
 
 									}
+									if(!boolh)//for -h
+											{
+												totalSum=totalSum +atof(fields[y].name);
+												}
 								}
 
 							}
@@ -404,7 +410,8 @@ int main(int argc, char* argv[]){
 							//Calculating mean over ALL records. Might need change if we filter entries.
 							// dividing by records -1 because of header filename
 							//TODO take into consideration -h tag when computing average
-							totalMean = totalSum / (Records -1);
+							if(!boolh){totalMean=totalSum/Records;}
+							else{totalMean = totalSum / (Records -1);}
 							printf("Total mean is:%f\n",totalMean);
 
 
@@ -453,7 +460,11 @@ int main(int argc, char* argv[]){
 										if(atof(fields[y].OtherFields[j]) < fields[y].maxn){
 											fields[y].maxn = atof(fields[y].OtherFields[j]);
 
-
+											if(!boolh)
+											{
+												if(atof(fields[y].name)<fields[y].maxn)
+												{fields[y].maxn=atof(fields[y].name);}
+												}
 
 										}
 

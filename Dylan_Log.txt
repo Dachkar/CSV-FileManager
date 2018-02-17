@@ -47,3 +47,4 @@ ACTIVITY:completed records and -h
 TOOL: Gcc
 TIME:4:00pm-6:30pm
 PARTICIPANTS: alone
+Lasting Comments: I think this is the last time for this project. It was good. The struct was difficult and tedious to do, but I persevered. Not all cases are accounted for, but I think we all did a good job given the amount of time:)
