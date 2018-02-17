@@ -29,3 +29,21 @@ Tool: gcc I tried gdb, it didnt work
 TIME: 10:00am-2:00pm
 PARTICIPANTS: alone
 
+
+2/15/18
+ACTIVITY: Completed struct
+TOOL:Gcc, and print statements
+TIME: 10:00pm-2:00AM
+Participants: alone
+
+2/16/18
+ACTIVITY:Completed max and Min
+TOOL: GCC
+TIME:1:30pm-6:30pm
+Participants:Doug,Joe,Dylan
+
+2/17/18
+ACTIVITY:completed records and -h
+TOOL: Gcc
+TIME:4:00pm-6:30pm
+PARTICIPANTS: alone

@@ -29,7 +29,7 @@ int main(int argc, char* argv[]){
 
 	char mean[]= "-mean";
 
-
+	char _records[]="-records";
 
 	// Here is an idea for the object
 	struct data {
@@ -64,8 +64,10 @@ int main(int argc, char* argv[]){
 	int fieldRows=0 ;//count which row we are on
 	int Records=0;
 	int FieldsA=0;
+	bool boolh=false;
 	while(fgets(words,300,inFile)!=NULL)
 	{
+		
 		//int Li;//Counter to show which character we are on
 		Records++;
 		//int fieldN=0;// Counter for which field we a re on
@@ -271,7 +273,7 @@ int main(int argc, char* argv[]){
 			else if(strcmp(argv[i],_h) == 0)
 			{
 				//Treat the first record of the file as a header record rather than a data record
-				FILE* inFile = fopen(argv[argc-1],"r");
+				boolh = true;
 
 			}
 
@@ -295,11 +297,11 @@ int main(int argc, char* argv[]){
 				float firstVal;
 
 				for (y; y < FieldsA; y++){
-					puts(fields[y].name);
-					puts("COMPARE");
-					puts(fieldName);
+				//	puts(fields[y].name);
+				//	puts("COMPARE");
+				//	puts(fieldName);
 					if (strcmp(fieldName, fields[y].name) == 0){
-						puts("FIRST LOOP> WE MADE IT BOYS");
+						//puts("FIRST LOOP> WE MADE IT BOYS");
 						bool validNum = false;
 						if(atof(fields[y].OtherFields[0]) != 0){
 							validNum = true;
@@ -316,7 +318,11 @@ int main(int argc, char* argv[]){
 									if(atof(fields[y].OtherFields[j]) > fields[y].maxn){
 										fields[y].maxn = atof(fields[y].OtherFields[j]);
 
-
+											if(!boolh)
+											{
+												if(atof(fields[y].name)>fields[y].maxn)
+												{fields[y].maxn=atof(fields[y].name);}
+												}							
 
 									}
 
@@ -426,9 +432,9 @@ int main(int argc, char* argv[]){
 					float firstVal;
 
 					for (y; y < FieldsA; y++){
-						puts(fields[y].name);
-						puts("COMPARE");
-						puts(fieldName);
+						//puts(fields[y].name);
+						//puts("COMPARE");
+						//puts(fieldName);
 						if (strcmp(fieldName, fields[y].name) == 0){
 							puts("FIRST LOOP> WE MADE IT BOYS");
 							bool validNum = false;
@@ -451,7 +457,7 @@ int main(int argc, char* argv[]){
 
 										}
 
-										printf("Max val#%f",fields[y].maxn);
+										printf("Min val#%f",fields[y].maxn);
 
 
 									}
@@ -468,16 +474,72 @@ int main(int argc, char* argv[]){
 					}
 
 
-					else if(strcmp(argv[i],mean) == 0)
+					else if(strcmp(argv[i],_records) == 0)
 					{
-						// Displays the mean in a given field.
-						// Can have a variable that sums everything up and a counter to count how many times we scanned.
-					}
-					else if ( 5== 5) // ref field value goes here. I dont know what the argument call is
-					{
+					
 
-					}
-				}
+
+
+
+
+					char fieldName[200];
+				char cleanFn[200];
+				strcpy(fieldName, argv[i + 1]);
+				//printf("we are in the max\n");
+
+
+
+				//printf("fieldName %s\n", fieldName);
+				//printf("cleanFn: %s\n", cleanFn);
+				int y = 0;
+				int j = 0;
+				int pl;// THIS IS PL not P1 p one and p L look similiar its L
+				float firstVal;
+				//int q=0;
+				for (y; y < FieldsA; y++){
+				//	puts(fields[y].name);
+				//	puts("COMPARE");
+				//	puts(fieldName);
+					if (strcmp(fieldName, fields[y].name) == 0)
+					{	//	printf("fields name correct %d\n",y);
+
+						
+							for(j;j<Records;j++)
+							{	//printf("comparing %s\n",fields[y].OtherFields[j]);
+								if(atof(fields[y].OtherFields[j])==atof(argv[i+2]))
+									{
+								//	printf("found number");
+									for(pl=0;pl<FieldsA-1;pl++)
+										{
+										
+										
+										printf(fields[pl].OtherFields[j]);
+										printf(" ");
+										
+										}
+										printf("\n");
+									}
+								
+							}
+
+							
+					
+
+
+								}
+							}//end of for
+
+						}//end of record if
+
+
+					
+
+
+
+
+					
+					
+			}//end of while loop	
 
 				return 0;
 			}
