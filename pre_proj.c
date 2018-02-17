@@ -137,7 +137,7 @@ int main(int argc, char* argv[]){
 
 
 							if((Li+1)==strlen(words)){
-							//	fieldC[p]=words[Li];
+								//	fieldC[p]=words[Li];
 								memcpy(fields[fieldN].name,fieldC,sizeof(fieldC));
 								fieldN=0;
 								firstLine=false;
@@ -180,7 +180,7 @@ int main(int argc, char* argv[]){
 			printf("%d",Records);
 			printf("\n");
 		}*/
-	//	printf("%f\n",atof(fields[7].OtherFields[0]));
+		//	printf("%f\n",atof(fields[7].OtherFields[0]));
 		fclose(inFile);
 		int i;// for loop iterator vairable. Its 1 cause argv[0] is this program
 		// Loop iterates to argc - 1 because the final arg is the filename
@@ -279,141 +279,203 @@ int main(int argc, char* argv[]){
 
 			else if(strcmp(argv[i],max) == 0) // Compares strings
 			{
-			//const int initializer = i + 1;
-			
-			char fieldName[200];
-			char cleanFn[200];
-			strcpy(fieldName, argv[i + 1]);
-			printf("we are in the max\n");	
+				//const int initializer = i + 1;
 
-			
+				char fieldName[200];
+				char cleanFn[200];
+				strcpy(fieldName, argv[i + 1]);
+				printf("we are in the max\n");
 
-			printf("fieldName %s\n", fieldName);
-			printf("cleanFn: %s\n", cleanFn);
-			int y = 0;
-			int j = 0;
-			float firstVal;
-			
-			for (y; y < FieldsA; y++){
+
+
+				printf("fieldName %s\n", fieldName);
+				printf("cleanFn: %s\n", cleanFn);
+				int y = 0;
+				int j = 0;
+				float firstVal;
+
+				for (y; y < FieldsA; y++){
 					puts(fields[y].name);
 					puts("COMPARE");
 					puts(fieldName);
-				if (strcmp(fieldName, fields[y].name) == 0){
-					puts("FIRST LOOP> WE MADE IT BOYS");
-					bool validNum = false;
-					 if(atof(fields[y].OtherFields[0]) != 0){
-						validNum = true;
-					 	firstVal = atof(fields[y].OtherFields[0]);
-					 		
-                                    
-					       printf("We are in a number");
-                                                }else {
-                                                        puts("Non-numeric data - exit error 1");
-                                                        return -1;}
-					if(validNum){
-					for (j; j < Records; j++){                     
-						fields[y].maxn = firstVal;
-						if(atof(fields[y].OtherFields[j]) > fields[y].maxn){
-							fields[y].maxn = atof(fields[y].OtherFields[j]);
-			
+					if (strcmp(fieldName, fields[y].name) == 0){
+						puts("FIRST LOOP> WE MADE IT BOYS");
+						bool validNum = false;
+						if(atof(fields[y].OtherFields[0]) != 0){
+							validNum = true;
+							firstVal = atof(fields[y].OtherFields[0]);
+
+
+							printf("We are in a number");
+						}else {
+							puts("Non-numeric data - exit error 1");
+							return -1;}
+							if(validNum){
+								for (j; j < Records; j++){
+									fields[y].maxn = firstVal;
+									if(atof(fields[y].OtherFields[j]) > fields[y].maxn){
+										fields[y].maxn = atof(fields[y].OtherFields[j]);
+
+
+
+									}
+
+									printf("Max val#%f",fields[y].maxn);
+
+
+								}
+							}
+
+						}
+
+
+					}
+
+
+					for (j; j < Records; j++){
+
+
+
+					}
+					//Displays the max value in the indicated field
+				}
+
+				else if(strcmp(argv[i],mean) == 0){
+					char fieldName[200];
+					char cleanFn[200];
+					strcpy(fieldName, argv[i + 1]);
+					printf("We are in the mean\n");
+
+
+					printf("fieldName %s\n", fieldName);
+					printf("cleanFn: %s\n", cleanFn);
+					int y = 0;
+					int j = 0;
+					float firstVal;
+					float meanVal[Records];
+					float totalSum = 0.0;
+					float validEntries = 0.0; /* TO be used if we are checking if values are
+					0 before adding them to the average. Check the todo below for more info.*/
+
+					float totalMean = 0.0;
+
+
+					for (y; y < FieldsA; y++){
+						puts(fields[y].name);
+						puts("COMPARE");
+						puts(fieldName);
+						//If we are at the field that we were looking for, go in loop
+						if (strcmp(fieldName, fields[y].name) == 0){
+							puts("FIRST LOOP> WE MADE IT TO THE FIELD BOYYYYYSS");
+							//validNum determines if the column has number values or not
+							//It could be improoved, and maybe i will need to
+							//TODO -min field Display the minimum value in the indicated field of the data records.
+							// The first field is numbered 0. <-- This is what concerns me with our current checking method.
+							//TODO ENSURE THAT --> This option ignores non-numeric data in the indicated field. If there is no
+							// numeric data in the indicated field in *ANY* of the data records the program exits with error code 1.
+							bool validNum = false;
+							if(atof(fields[y].OtherFields[0]) != 0){
+								validNum = true;
+								firstVal = atof(fields[y].OtherFields[0]);
+							}else {
+								puts("Non-numeric data - exit error 1");
+								return -1;}
+								if(validNum){
+									for (j; j < Records; j++){
+										//if we are checking for the 0 here (todo requirement), we should have an if statement
+										// that validates entries as we go. For now, all values are being added.
+										totalSum = totalSum + atof(fields[y].OtherFields[j]);
+
+
+
+									}
+								}
+
+							}
 
 
 						}
-					
-					printf("Max val#%f",fields[y].maxn);	
+							//Calculating mean over ALL records. Might need change if we filter entries.
+							totalMean = totalSum / Records;
+							printf("Total mean is:%f\n",totalMean);
 
-					
-    				            }
+
+				}
+
+
+				else if(strcmp(argv[i],min) == 0)
+				{
+
+
+
+
+
+					char fieldName[200];
+					char cleanFn[200];
+					strcpy(fieldName, argv[i + 1]);
+					printf("we are in the max\n");
+
+
+
+					printf("fieldName %s\n", fieldName);
+					printf("cleanFn: %s\n", cleanFn);
+					int y = 0;
+					int j = 0;
+					float firstVal;
+
+					for (y; y < FieldsA; y++){
+						puts(fields[y].name);
+						puts("COMPARE");
+						puts(fieldName);
+						if (strcmp(fieldName, fields[y].name) == 0){
+							puts("FIRST LOOP> WE MADE IT BOYS");
+							bool validNum = false;
+							if(atof(fields[y].OtherFields[0]) != 0){
+								validNum = true;
+								firstVal = atof(fields[y].OtherFields[0]);
+
+
+								printf("We are in a number");
+							}else {
+								puts("Non-numeric data - exit error 1");
+								return -1;}
+								if(validNum){
+									for (j; j < Records; j++){
+										fields[y].maxn = firstVal;
+										if(atof(fields[y].OtherFields[j]) < fields[y].maxn){
+											fields[y].maxn = atof(fields[y].OtherFields[j]);
+
+
+
+										}
+
+										printf("Max val#%f",fields[y].maxn);
+
+
+									}
+								}
+
+							}
+
+
+						}
+
+
+
+
 					}
 
-				}	
 
-			
+					else if(strcmp(argv[i],mean) == 0)
+					{
+						// Displays the mean in a given field.
+						// Can have a variable that sums everything up and a counter to count how many times we scanned.
+					}
+					else if ( 5== 5) // ref field value goes here. I dont know what the argument call is
+					{
+
+					}
+				}
+
+				return 0;
 			}
-
-
-			for (j; j < Records; j++){
-				
-
-
-			}
-				//Displays the max value in the indicated field
-		}
-
-
-		else if(strcmp(argv[i],min) == 0)
-		{
-			
-
-
-
-
-		 char fieldName[200];
-                        char cleanFn[200];
-                        strcpy(fieldName, argv[i + 1]);
-                        printf("we are in the max\n");
-
-
-
-                        printf("fieldName %s\n", fieldName);
-                        printf("cleanFn: %s\n", cleanFn);
-                        int y = 0;
-                        int j = 0;
-                        float firstVal;
-
-                        for (y; y < FieldsA; y++){
-                                        puts(fields[y].name);
-                                        puts("COMPARE");
-                                        puts(fieldName);
-                                if (strcmp(fieldName, fields[y].name) == 0){
-                                        puts("FIRST LOOP> WE MADE IT BOYS");
-                                        bool validNum = false;
-                                         if(atof(fields[y].OtherFields[0]) != 0){
-                                                validNum = true;
-                                                firstVal = atof(fields[y].OtherFields[0]);
-
-
-                                               printf("We are in a number");
-                                                }else {
-                                                        puts("Non-numeric data - exit error 1");
-                                                        return -1;}
-                                        if(validNum){
-                                        for (j; j < Records; j++){
-                                                fields[y].maxn = firstVal;
-                                                if(atof(fields[y].OtherFields[j]) < fields[y].maxn){
-                                                        fields[y].maxn = atof(fields[y].OtherFields[j]);
-
-
-
-                                                }
-
-                                        printf("Max val#%f",fields[y].maxn);
-
-
-                                            }
-                                        }
-
-                                }
-
-
-                        }
-
-
-
-		
-		}
-
-
-		else if(strcmp(argv[i],mean) == 0)
-		{
-			// Displays the mean in a given field.
-			// Can have a variable that sums everything up and a counter to count how many times we scanned.
-		}
-		else if ( 5== 5) // ref field value goes here. I dont know what the argument call is
-		{
-
-		}
-	}
-
-	return 0;
-}
